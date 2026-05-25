@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 from datetime import date
 
@@ -16,3 +17,6 @@ class BookingRequest(BaseModel):
     check_out_date: date
     guests: int
 
+class BookingLookupRequest(BaseModel):
+    booking_id: str
+    phone_number: Optional[str] = None

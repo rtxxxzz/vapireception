@@ -5,6 +5,7 @@ from app.database import engine, Base
 from app.models import RoomInventory, Booking
 from app.routes.availability import router as availability_router
 from app.routes.bookings import router as booking_router
+from app.routes.booking_details import router as booking_details_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -28,6 +29,8 @@ app.add_middleware(
 app.include_router(availability_router)
 
 app.include_router(booking_router)
+
+app.include_router(booking_details_router)
 
 @app.get("/")
 def root():
