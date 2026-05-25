@@ -20,3 +20,8 @@ class BookingRequest(BaseModel):
 class BookingLookupRequest(BaseModel):
     booking_id: str
     phone_number: Optional[str] = None
+
+class CancelBookingRequest(BaseModel):
+    booking_id: str
+    phone_number: str
+    reason: Optional[str] = None

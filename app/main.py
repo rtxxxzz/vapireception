@@ -6,6 +6,7 @@ from app.models import RoomInventory, Booking
 from app.routes.availability import router as availability_router
 from app.routes.bookings import router as booking_router
 from app.routes.booking_details import router as booking_details_router
+from app.routes.cancel_booking import router as cancel_booking_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -31,6 +32,8 @@ app.include_router(availability_router)
 app.include_router(booking_router)
 
 app.include_router(booking_details_router)
+
+app.include_router(cancel_booking_router)
 
 @app.get("/")
 def root():
